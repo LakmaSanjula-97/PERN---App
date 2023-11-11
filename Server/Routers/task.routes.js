@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// VIEW
+// VIEW 
 
 router.get("/", async (req, res) => {
   try {
