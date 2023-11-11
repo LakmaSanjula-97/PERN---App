@@ -77,7 +77,7 @@ export default function ListTasks() {
           <Button variant="outlined" href="/">
             CREATE TASK
           </Button>
-        </Grid> 
+        </Grid>
         <h1>LIST OF TASKS</h1>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -100,7 +100,7 @@ export default function ListTasks() {
                     {task.description}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    {new Date(task.cretaed_at).toLocaleDateString()}
+                    {new Date(task.created_at).toLocaleDateString()}
                   </StyledTableCell>
                   <StyledTableCell align="right">{task.status}</StyledTableCell>
                   <StyledTableCell align="right">

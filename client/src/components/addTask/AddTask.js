@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 export default function AddTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [cretaed_at, setCretaed_at] = useState(
+  const [created_at, setcreated_at] = useState(
     new Date().toISOString().split("T")[0]
   ); // Initialize with the current date
   const [status, setStatus] = useState("");
@@ -20,7 +20,7 @@ export default function AddTask() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCretaed_at(new Date().toISOString().split("T")[0]);
+    setcreated_at(new Date().toISOString().split("T")[0]);
   }, []);
 
   const onSubmitForm = async (e) => {
@@ -31,14 +31,14 @@ export default function AddTask() {
       if (
         title.trim() === "" ||
         description.trim() === "" ||
-        cretaed_at === "" ||
+        created_at === "" ||
         status.trim() === ""
       ) {
         console.error("All fields are required");
         return;
       }
 
-      const body = { title, description, cretaed_at, status };
+      const body = { title, description, created_at, status };
       const response = await fetch("http://localhost:5000/tasks/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -110,10 +110,10 @@ export default function AddTask() {
                   type="date"
                   fullWidth
                   required
-                  value={cretaed_at}
-                  onChange={(e) => setCretaed_at(e.target.value)}
-                  error={cretaed_at === ""}
-                  helperText={cretaed_at === "" ? "Date is required" : ""}
+                  value={created_at}
+                  onChange={(e) => setcreated_at(e.target.value)}
+                  error={created_at === ""}
+                  helperText={created_at === "" ? "Date is required" : ""}
                   sx={{ "& fieldset": { borderColor: "black !important" } }}
                 />
               </Grid>

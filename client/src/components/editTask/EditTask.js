@@ -29,13 +29,13 @@ export default function EditTask({ task }) {
 
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
-  const [cretaed_at, setCretaed_at] = useState(task.cretaed_at);
+  const [created_at, setcreated_at] = useState(task.created_at);
   const [status, setStatus] = useState(task.status);
 
   const updteTask = async (e) => {
     e.preventDefault();
     try {
-      const body = { title, description, cretaed_at, status };
+      const body = { title, description, created_at, status };
       const response = await fetch(
         `http://localhost:5000/tasks/${task.task_id}`,
         {
@@ -56,15 +56,15 @@ export default function EditTask({ task }) {
       <div>
         <div>
           <Button
-          onClick={handleOpen}
-          size="small"
-          variant="contained"
-          color="primary"
-        >
-          EDIT
-        </Button>
+            onClick={handleOpen}
+            size="small"
+            variant="contained"
+            color="primary"
+          >
+            EDIT
+          </Button>
         </div>
-        
+
         <Modal
           open={open}
           onClose={handleClose}
@@ -100,8 +100,8 @@ export default function EditTask({ task }) {
                     type="date"
                     fullWidth
                     required
-                    value={cretaed_at}
-                    onChange={(e) => setCretaed_at(e.target.value)}
+                    value={created_at}
+                    onChange={(e) => setcreated_at(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>

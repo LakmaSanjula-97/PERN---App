@@ -4,10 +4,10 @@ const pool = require("../db");
 // CREATE
 router.post("/", async (req, res) => {
   try {
-    const { title, description, cretaed_at, status } = req.body;
+    const { title, description, created_at, status } = req.body;
     const newTask = await pool.query(
-      "INSERT INTO task(title,description,cretaed_at,status) VALUES($1,$2,$3,$4) RETURNING *",
-      [title, description, cretaed_at, status]
+      "INSERT INTO task(title,description,created_at,status) VALUES($1,$2,$3,$4) RETURNING *",
+      [title, description, created_at, status]
     );
 
     res.json(newTask.rows[0]);
@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// VIEW 
+// VIEW
 
 router.get("/", async (req, res) => {
   try {
@@ -47,11 +47,11 @@ router.get("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, cretaed_at, status } = req.body;
+    const { title, description, created_at, status } = req.body;
 
     const updateTask = await pool.query(
-      "UPDATE task SET title=$1, description=$2, cretaed_at=$3, status=$4 WHERE task_id=$5",
-      [title, description, cretaed_at, status, id]
+      "UPDATE task SET title=$1, description=$2, created_at=$3, status=$4 WHERE task_id=$5",
+      [title, description, created_at, status, id]
     );
 
     res.json("Task was updated");
