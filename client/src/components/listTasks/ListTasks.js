@@ -77,7 +77,7 @@ export default function ListTasks() {
           <Button variant="outlined" href="/">
             CREATE TASK
           </Button>
-        </Grid>
+        </Grid> 
         <h1>LIST OF TASKS</h1>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
